@@ -1,5 +1,7 @@
 package com.patrick.algorithm;
 
+import com.patrick.algorithm.divideandconquer.HanoiTower;
+
 /**
  * @author PatrickStar
  * @version V1.0
@@ -88,5 +90,8 @@ public class AlgorithmTest {
         System.out.println(res1);
 
  */
+        HanoiTower hanoiTower = HanoiTower.getInstance();
+        hanoiTower.hanoiTower(2);
+        System.out.println(hanoiTower.getMoveCount());
     }
 }

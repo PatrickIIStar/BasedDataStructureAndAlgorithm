@@ -165,6 +165,7 @@ public class BinarySortTree {
     }
 
 // 非递归删除BST的结点
+
     /**
      * @param root BST
      * @param val  规定的val
@@ -175,16 +176,16 @@ public class BinarySortTree {
      *  2)找到目标结点的父节点parent
      *  3)确定target是父节点的左节点还是右节点
      *  4)根据3来删除target结点  左子节点:parent.left = null,右子节点:parent.right = null
-     *
+     * <p>
      * 2、删除的结点有两个子节点
      *  1)找到目标结点target
      *  2)找到目标节点target右子树的最大值,用temp保存
      *  3)找到temp的父节点parent
      *  4)将目标结点的值置为temp的结点的值
-     *  5)删除temp结点
-     *      5.1 temp为叶子节点，到情况1
-     *      5.2 temp有右子节点，到情况3
-     *
+     * 5)删除temp结点
+     *  5.1 temp为叶子节点，到情况1
+     *  5.2 temp有右子节点，到情况3
+     * <p>
      * 3、删除的结点有一个子节点
      *  1)找到目标节点target
      *  2)找到目标结点的父节点parent
@@ -195,7 +196,7 @@ public class BinarySortTree {
      *      5.2)target有左子节点且target是parent的右子节点
      *      5.3)target有右子节点且target是parent的左子节点
      *      5.4)target有右子节点且target是parent的右子节点
-     *
+     * <p>
      * 说明：如果找到target但是parent为null，说明target为根节点
      */
     private void delNode(TreeNode root, int val) {
@@ -340,5 +341,33 @@ public class BinarySortTree {
 
     private boolean isEqual(TreeNode node, TreeNode temp) {
         return node != null && node.getVal() == temp.getVal();
+    }
+
+    /**
+     * @declaration 递归删除BST中的结点（惰性删除，不真的删除结点）
+     * 1、如果要删除的值小于当前节点，去左子树中找
+     * 2、如果要删除的值大于当前节点，去右子树找
+     * 3、如果找到了，其左右子树都不为空，找到要删除结点的右子树中的最小值，将其值赋给要删除的结点
+     * 然后把最小值结点删除
+     * 4、如果为其他情况，即
+     *  1、要删除的结点为叶子节点，将其置为空
+     *  2、有一个子节点，就将其替换为左子节点(或右子节点)
+     */
+    private TreeNode deleteNode(TreeNode root, int val) {
+        if (root == null) {
+            return null;
+        }
+        if (root.getVal() < val) {
+            root.left = deleteNode(root.left, val);
+        } else if (root.getVal() > val) {
+            root.right = deleteNode(root.right, val);
+        } else if (root.left != null && root.right != null) {
+            TreeNode temp = getMin(root.right);
+            root.setVal(temp.getVal());
+            root.right = deleteNode(root.right, temp.getVal());
+        } else {
+            root = (root.left != null) ? root.left : root.right;
+        }
+        return root;
     }
 }
