@@ -7,7 +7,7 @@ package com.patrick.javase.designpattern.singletonpattern;
  * @declaration  单例模式(饿汉模式)
  */
 public class HungrySingleton {
-    private int temp;
+    private int mmm;
     private static final HungrySingleton hungrySingleton = new HungrySingleton();
 
 
