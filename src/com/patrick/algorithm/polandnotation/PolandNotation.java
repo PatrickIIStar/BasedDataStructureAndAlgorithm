@@ -136,7 +136,7 @@ public class PolandNotation {
                 // 先弹出的为右操作数，后弹出的为左操作数
                 int num2 = Integer.parseInt(stack.pop());
                 int num1 = Integer.parseInt(stack.pop());
-                int res = 0;
+                int res;
                 // 判断操作符，并将弹出的两个数字做相应操作
                 switch (item) {
                     case "+":
