@@ -1,6 +1,6 @@
-package com.patrick.darastructure;
+package main.java.com.patrick.darastructure;
 
-import com.patrick.darastructure.graph.MatrixGraph;
+import main.java.com.patrick.darastructure.graph.MatrixGraph;
 
 
 /**

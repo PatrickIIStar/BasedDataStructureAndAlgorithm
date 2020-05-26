@@ -1,6 +1,7 @@
-package com.patrick.algorithm;
+package main.java.com.patrick.algorithm;
 
-import com.patrick.algorithm.divideandconquer.HanoiTower;
+import main.java.com.patrick.algorithm.dynamicprogramming.Activity;
+import main.java.com.patrick.algorithm.dynamicprogramming.ActivitySelect;
 
 /**
  * @author PatrickStar
@@ -10,14 +11,17 @@ import com.patrick.algorithm.divideandconquer.HanoiTower;
  */
 public class AlgorithmTest {
     public static void main(String[] args) {
-        /* 八皇后
+        /*
+        // 八皇后
         Queen queen = new Queen(8);
         queen.setQueen();
         System.out.println(queen.getCount());
 
          */
+//***************************************************************************
 
-        /* 稀疏矩阵
+        /*
+        // 稀疏矩阵
         int row = FileUtil.getRowsCount();
         int col = FileUtil.getColCount();
         int[][] old = new int[row][col];
@@ -42,7 +46,8 @@ public class AlgorithmTest {
 
 
 //***********************************************************************************************
-/*    后缀表达式(逆波兰表达式)
+/*
+         //后缀表达式(逆波兰表达式)
         String s = "10 10 + 10 X 10 - 15 /";
         ArrayList<String> list = PolandNotation.toPolandList(s);
         System.out.println(list);
@@ -79,8 +84,10 @@ public class AlgorithmTest {
         System.out.println(System.currentTimeMillis() - atime);
 */
 
+///********************************************************************************************
 
-/*     查找
+/*
+//      查找
         int[] arr = {0,1,2,3,4};
         int res = (Search.binarySearch0(arr,0,arr.length-1,6));
 //        ArrayList<Integer> arrayList = Search.binary(arr,1);
@@ -90,8 +97,40 @@ public class AlgorithmTest {
         System.out.println(res1);
 
  */
+      /*
+      // 汉诺塔
         HanoiTower hanoiTower = HanoiTower.getInstance();
         hanoiTower.hanoiTower(2);
         System.out.println(hanoiTower.getMoveCount());
+
+*/
+        /*
+        // 0-1背包
+        int[] weight = {1, 4, 3};
+        int[] val = {1500, 3000, 2000};
+        int cap = 4;
+        Knapsack knapsack = new Knapsack(weight,val,cap);
+        knapsack.knapsack();
+        System.out.println(knapsack.getMaxValue());
+        System.out.println(knapsack.getChooseMethod());
+        */
+
+        Activity[] activities = {
+                new Activity(0, 0, 0),
+                new Activity(1, 4, 5),
+                new Activity(3, 5, 1),
+                new Activity(0, 6, 8),
+                new Activity(4, 7, 4),
+                new Activity(3, 8, 6),
+                new Activity(5, 9, 3),
+                new Activity(6, 10, 2),
+                new Activity(8, 11, 4),
+                new Activity(0, 11, 1)};
+
+        ActivitySelect activitySelect = new ActivitySelect(activities);
+        activitySelect.activitySelect();
+        System.out.println(activitySelect.maxValue());
+        System.out.println(activitySelect.selectionOfMaxValue());
+
     }
 }

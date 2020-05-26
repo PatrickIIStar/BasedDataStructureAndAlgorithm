@@ -1,6 +1,6 @@
-package com.patrick.leetcode;
+package main.java.com.patrick.leetcode;
 
-import com.patrick.darastructure.tree.binarysorttree.TreeNode;
+import main.java.com.patrick.darastructure.tree.binarysorttree.TreeNode;
 
 /**
  * @author PatrickStar
